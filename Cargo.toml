@@ -1,3 +1,3 @@
 [workspace]
-members = ["matrix", "matrix_macros", "sequential"]
+members = ["matrix", "matrix_macros", "parallel", "sequential"]
 resolver = "2"
