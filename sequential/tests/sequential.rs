@@ -8,3 +8,11 @@ fn test_multiply() {
     let expected = matrix![[58, 64], [139, 154]];
     assert_eq!(multiply(left, right), expected);
 }
+
+#[test]
+#[should_panic(expected = "Invalid matrix dimensions")]
+fn multiply_invalid_dimensions() {
+    let left = matrix![[1, 2], [3, 4]];
+    let right = matrix![[1, 2], [3, 4], [5, 6]];
+    multiply(left, right);
+}
