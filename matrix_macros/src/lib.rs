@@ -52,6 +52,6 @@ fn process_matrix(input: MatrixInput) -> Result<TokenStream2> {
     let cols = cols.unwrap_or(0);
 
     Ok(quote! {
-        Matrix::from_vec(#cols, vec![#(#buf),*])
+        matrix::Matrix::from_vec(#cols, vec![#(#buf),*])
     })
 }

@@ -1,0 +1,5 @@
+error: All rows must have the same number of columns
+ --> tests/trybuild/compile_fail.rs:4:32
+  |
+4 |     let _ = matrix![[0, 1, 2], [3, 4]];
+  |                                ^^^^^^

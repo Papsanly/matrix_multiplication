@@ -9,4 +9,8 @@ proc-macro = true
 [dependencies]
 proc-macro2 = "1.0.85"
 quote = "1.0.36"
-syn = { version = "2.0.66" , features = ["full"] }
+syn = { version = "2.0.66", features = ["full"] }
+
+[dev-dependencies]
+trybuild = "1.0.96"
+matrix = { path = "../matrix" }
