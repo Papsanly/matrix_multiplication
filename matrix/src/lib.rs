@@ -1,13 +1,10 @@
-use derive_more::{Deref, DerefMut};
 use num_traits::Num;
 use std::ops::{Index, IndexMut};
 
-#[derive(Deref, DerefMut, Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Matrix<T: Num + Clone> {
     pub rows: usize,
     pub cols: usize,
-    #[deref]
-    #[deref_mut]
     buf: Vec<T>,
 }
 
