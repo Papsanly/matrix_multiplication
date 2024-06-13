@@ -4,7 +4,7 @@ use std::ops::{Index, IndexMut};
 pub struct Matrix<T: Clone> {
     pub rows: usize,
     pub cols: usize,
-    buf: Vec<T>,
+    pub buf: Vec<T>,
 }
 
 impl<T: Clone> Matrix<T> {
