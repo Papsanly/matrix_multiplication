@@ -16,14 +16,14 @@ fn index() {
 
 #[test]
 #[should_panic(expected = "out of range")]
-fn index_out_of_range_1() {
+fn index_out_of_range() {
     let matrix = get_matrix();
     let _ = matrix[2][1];
 }
 
 #[test]
 #[should_panic(expected = "out of bounds")]
-fn index_out_of_range_2() {
+fn index_out_of_bounds() {
     let matrix = get_matrix();
     let _ = matrix[1][6];
 }
