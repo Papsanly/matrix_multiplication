@@ -21,7 +21,7 @@ impl<T: Num + Clone + Copy> Matrix<T> {
     }
 
     pub fn from_vec(cols: usize, vec: Vec<T>) -> Self {
-        assert_eq!(vec.len() % cols, 0);
+        assert_eq!(vec.len() % cols, 0, "Invalid number of elements");
         Self {
             rows: vec.len() / cols,
             cols,
