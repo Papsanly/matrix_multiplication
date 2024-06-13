@@ -32,7 +32,6 @@ pub fn matrix(input: TokenStream) -> TokenStream {
 
 fn process_matrix(input: MatrixInput) -> Result<TokenStream2> {
     let mut buf = Vec::new();
-    let rows = input.arrays.len();
     let mut cols = None;
 
     for array in input.arrays {
@@ -47,18 +46,12 @@ fn process_matrix(input: MatrixInput) -> Result<TokenStream2> {
         } else {
             cols = Some(row_len);
         }
-        for elem in array.elems {
-            buf.push(elem);
-        }
+        buf.extend(array.elems);
     }
 
     let cols = cols.unwrap_or(0);
 
     Ok(quote! {
-        Matrix {
-            rows: #rows,
-            cols: #cols,
-            buf: vec![#(#buf),*],
-        }
+        Matrix::from_vec(#cols, vec![#(#buf),*])
     })
 }

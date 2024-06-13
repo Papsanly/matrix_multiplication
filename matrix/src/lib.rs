@@ -1,24 +1,31 @@
-mod tests;
-
 use derive_more::{Deref, DerefMut};
 use num_traits::Num;
-use std::ops::{Index, Mul};
+use std::ops::Index;
 
 #[derive(Deref, DerefMut)]
 pub struct Matrix<T: Num + Clone + Copy> {
-    rows: usize,
-    cols: usize,
+    pub rows: usize,
+    pub cols: usize,
     #[deref]
     #[deref_mut]
     buf: Vec<T>,
 }
 
 impl<T: Num + Clone + Copy> Matrix<T> {
-    fn new(rows: usize, cols: usize) -> Self {
+    pub fn new(rows: usize, cols: usize) -> Self {
         Self {
             rows,
             cols,
             buf: vec![T::zero(); rows * cols],
+        }
+    }
+
+    pub fn from_vec(cols: usize, vec: Vec<T>) -> Self {
+        assert_eq!(vec.len() % cols, 0);
+        Self {
+            rows: vec.len() / cols,
+            cols,
+            buf: vec,
         }
     }
 }
