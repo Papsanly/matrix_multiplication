@@ -1,4 +1,8 @@
-use std::ops::{Index, IndexMut};
+use rand::{
+    distributions::{uniform::SampleUniform, Distribution, Standard, Uniform},
+    Rng,
+};
+use std::ops::{Index, IndexMut, Range};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Matrix<T: Clone> {
@@ -14,6 +18,19 @@ impl<T: Clone> Matrix<T> {
             cols,
             buf: vec![fill; rows * cols],
         }
+    }
+
+    pub fn random(rows: usize, cols: usize, range: Range<T>) -> Self
+    where
+        Standard: Distribution<T>,
+        T: SampleUniform,
+    {
+        let distribution = Uniform::try_from(range).unwrap();
+        let buf = rand::thread_rng()
+            .sample_iter(distribution)
+            .take(rows * cols)
+            .collect();
+        Self { rows, cols, buf }
     }
 
     pub fn from_vec(cols: usize, vec: Vec<T>) -> Self {
