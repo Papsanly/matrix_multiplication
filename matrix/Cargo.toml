@@ -6,3 +6,12 @@ edition = "2021"
 [dependencies]
 matrix_macros = { path = "../matrix_macros" }
 rand = "0.9.0-alpha.1"
+
+[dev-dependencies]
+parallel = { path = "../parallel" }
+sequential = { path = "../sequential" }
+criterion = { version = "0.5.1", features = ["html_reports"] }
+
+[[bench]]
+name = "matrix_multiplication"
+harness = false

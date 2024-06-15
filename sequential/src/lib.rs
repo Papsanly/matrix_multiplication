@@ -1,7 +1,10 @@
 use matrix::Matrix;
 use num_traits::{Num, NumAssign};
 
-pub fn multiply<T: Num + NumAssign + Clone + Copy>(left: Matrix<T>, right: Matrix<T>) -> Matrix<T> {
+pub fn multiply<T: Num + NumAssign + Clone + Copy>(
+    left: &Matrix<T>,
+    right: &Matrix<T>,
+) -> Matrix<T> {
     assert_eq!(left.cols, right.rows, "Invalid matrix dimensions");
     let mut res = Matrix::new(T::zero(), left.rows, right.cols);
     for i in 0..left.rows {
