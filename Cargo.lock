@@ -330,6 +330,7 @@ dependencies = [
  "matrix",
  "matrix_macros",
  "num-traits",
+ "sequential",
 ]
 
 [[package]]

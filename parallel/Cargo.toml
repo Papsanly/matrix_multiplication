@@ -7,3 +7,6 @@ edition = "2021"
 matrix = { path = "../matrix" }
 matrix_macros = { path = "../matrix_macros" }
 num-traits = "0.2.19"
+
+[dev-dependencies]
+sequential = { path = "../sequential" }
