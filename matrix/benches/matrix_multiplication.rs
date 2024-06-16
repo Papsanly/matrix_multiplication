@@ -17,7 +17,7 @@ fn criterion_benchmark(c: &mut Criterion) {
     }
     drop(group_1);
     let mut group_2 = c.benchmark_group("matrix_multiplication_parallel");
-    for num_threads in (1..2).chain((1..6).map(|x| 4 * x)) {
+    for num_threads in (1..2).chain((1..=6).map(|x| 4 * x)) {
         group_2.bench_with_input(
             BenchmarkId::new("parallel", num_threads),
             &num_threads,

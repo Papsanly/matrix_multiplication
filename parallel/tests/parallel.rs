@@ -36,10 +36,3 @@ fn test_with_sequential() {
         sequential::multiply(&left, &right)
     );
 }
-
-#[test]
-fn test() {
-    let mut x = vec![0, 1, 2];
-    x.rotate_left(1);
-    dbg!(x);
-}
